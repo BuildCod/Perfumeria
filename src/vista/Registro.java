@@ -25,6 +25,7 @@ public class Registro extends javax.swing.JFrame {
     public Registro() {
         initComponents();
         mostrar();
+        desabilitado();
     }
 
    
@@ -52,6 +53,31 @@ public class Registro extends javax.swing.JFrame {
   
   
      }
+     
+     public void desabilitado(){ /*este codigo es para bloquear la escritura en los textfile*/
+     
+         txtusuario.setEnabled(false);
+           txtpassword.setEnabled(false);
+             txtnombre.setEnabled(false);
+               txtcorreo.setEnabled(false);
+                 txtusuario.setEnabled(false);
+                   cbusuario.setEnabled(false);
+     
+     } 
+     
+     public void habilitar(){
+     txtusuario.setEnabled(true);
+           txtpassword.setEnabled(true);
+             txtnombre.setEnabled(true);
+               txtcorreo.setEnabled(true);
+                 txtusuario.setEnabled(true);
+                   cbusuario.setEnabled(true);
+     
+     }
+     
+     
+     
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,18 +89,19 @@ public class Registro extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txtusuario = new javax.swing.JTextField();
-        txtcorreo = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtpassword = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbusuario = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
+        txtusuario = new javax.swing.JTextField();
+        txtcorreo = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbusuarios = new javax.swing.JTable();
         bteliminar = new javax.swing.JButton();
@@ -87,69 +114,53 @@ public class Registro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Correo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
-
-        jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
-
-        jLabel4.setText("Password");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
-        getContentPane().add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 42, 150, -1));
-        getContentPane().add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 206, 150, -1));
-
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 150, 30));
 
+        jLabel6.setFont(new java.awt.Font("Arial Black", 2, 14)); // NOI18N
         jLabel6.setText("Roll");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 40, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Administrador" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbusuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Administrador" }));
+        cbusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cbusuarioActionPerformed(evt);
             }
         });
+        jPanel2.add(cbusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 150, 30));
 
+        jLabel3.setFont(new java.awt.Font("Arial Black", 2, 14)); // NOI18N
         jLabel3.setText("Nombre");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 70, -1));
+        jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 150, 30));
+        jPanel2.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 150, 30));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtpassword, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(34, 34, 34))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
-        );
+        txtcorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcorreoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 150, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Arial Black", 2, 14)); // NOI18N
+        jLabel1.setText("Correo");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 60, -1));
+
+        jLabel4.setFont(new java.awt.Font("Arial Black", 2, 14)); // NOI18N
+        jLabel4.setText("Password");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 80, -1));
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 2, 14)); // NOI18N
+        jLabel2.setText("Usuario");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 70, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/user.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 120, 80));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 300));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -163,7 +174,7 @@ public class Registro extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tbusuarios);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 480, 300));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 300, 300));
 
         bteliminar.setText("Eliminar");
         bteliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +182,7 @@ public class Registro extends javax.swing.JFrame {
                 bteliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(bteliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, 140, 50));
+        getContentPane().add(bteliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 140, 50));
 
         btnuevo.setText("Nuevo");
         btnuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +190,7 @@ public class Registro extends javax.swing.JFrame {
                 btnuevoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 140, 50));
+        getContentPane().add(btnuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 140, 50));
 
         btagregar.setText("Agregar");
         btagregar.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +198,7 @@ public class Registro extends javax.swing.JFrame {
                 btagregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 140, 50));
+        getContentPane().add(btagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 140, 50));
 
         btactualizar.setText("Actualizar");
         btactualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +206,7 @@ public class Registro extends javax.swing.JFrame {
                 btactualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 140, 50));
+        getContentPane().add(btactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 140, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -206,17 +217,19 @@ public class Registro extends javax.swing.JFrame {
 
     private void btnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnuevoActionPerformed
         // TODO add your handling code here:
+        habilitar();
     }//GEN-LAST:event_btnuevoActionPerformed
 
     private void btagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btagregarActionPerformed
         // TODO add your handling code here:
         
         try {
-            PreparedStatement pst = cn.prepareStatement ("INSERT INTO usuario(campos de la base de datos) VALUES (?,?,?,?,?)");
+            PreparedStatement pst = cn.prepareStatement ("INSERT INTO usuarios(usuario,password,Nombre,Correo,roll) VALUES (?,?,?,?,?)");
             pst.setString(1, txtusuario.getText());
             pst.setString(2, txtpassword.getText());
             pst.setString(4, txtnombre.getText());
             pst.setString(5, txtcorreo.getText());
+            pst.setString(6, cbusuario.getSelectedItem().toString());
             pst.executeUpdate();
             mostrar();
         } catch (Exception e) {
@@ -228,9 +241,13 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btactualizarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cbusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbusuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cbusuarioActionPerformed
+
+    private void txtcorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcorreoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,12 +289,13 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JButton btagregar;
     private javax.swing.JButton bteliminar;
     private javax.swing.JButton btnuevo;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbusuario;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
